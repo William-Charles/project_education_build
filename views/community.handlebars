@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-sm-4">
+    <h4>Push up Boss: {{pushRankings.[0].fname}} {{pushRankings.[0].lname}}</h4>
+    <h6>A Feakish {{pushRankings.[0].bestPush}} Push ups</h6>
+    <a href="#" class="thumbnail">
+      <img src="{{pushRankings.[0].picture}} " alt="...">
+    </a>
+  </div>
+  <div class="col-sm-4">
+    <h4>Fastest Entity on Earth: {{runRankings.[0].fname}} {{runRankings.[0].lname}}</h4>
+    <h6>An Unbelievable {{runRankings.[0].bestMin}} minute and {{runRankings.[0].bestSec}} second Mile</h6>
+    <a href="#" class="thumbnail">
+      <img src="{{runRankings.[0].picture}} " alt="...">
+    </a>
+  </div>
+  <div class="col-sm-4">
+    <h4>Push up Boss: {{pullRankings.[0].fname}} {{pullRankings.[0].lname}}</h4>
+    <h6>A Feakish {{pullRankings.[0].bestPull}} Push ups</h6>
+    <a href="#" class="thumbnail">
+      <img src="{{pullRankings.[0].picture}} " alt="...">
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+    <table class="table table-striped">
+      <thead>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Push ups</th>
+      </thead>
+
+      {{#each pullRankings as |workout|}}
+      <tbody>
+        <td>{{@index}}</td>
+        <td>{{workout.fname}} {{workout.lname}}</td>
+        <td>{{workout.bestPull}}</td>
+      </tbody>
+      {{/each}}
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <table class="table table-striped">
+      <thead>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Push ups</th>
+      </thead>
+
+      {{#each pushRankings as |workout|}}
+      <tbody>
+        <td>{{@index}}</td>
+        <td>{{workout.fname}} {{workout.lname}}</td>
+        <td>{{workout.bestPush}}</td>
+      </tbody>
+      {{/each}}
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <table class="table table-striped">
+      <thead>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Push ups</th>
+      </thead>
+
+      {{#each runRankings as |workout|}}
+      <tbody>
+        <td>{{@index}}</td>
+        <td>{{workout.fname}} {{workout.lname}}</td>
+        <td>{{workout.bestMin}}:{{workout.bestSec}}</td>
+      </tbody>
+      {{/each}}
+    </table>
+  </div>
+</div>

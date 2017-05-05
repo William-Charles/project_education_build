@@ -72,6 +72,12 @@ app.use("/", indexRouter);
 
 const vikingsRouter = require("./routes/vikings");
 app.use("/vikings", vikingsRouter);
+
+const editRouter = require("./routes/edit");
+app.use("/edit", editRouter);
+
+const communityRouter = require("./routes/community");
+app.use("/community", communityRouter);
 // ----------------------------------------
 // Server
 // ----------------------------------------

@@ -3,7 +3,10 @@ const uniqueValidator = require("mongoose-unique-validator");
 const bcrypt = require("bcrypt");
 
 const UserSchema = mongoose.Schema({
-  displayName: {
+  fname: {
+    type: String
+  },
+  lname: {
     type: String
   },
   facebookId: {
@@ -18,13 +21,20 @@ const UserSchema = mongoose.Schema({
     type: String
   },
   bestPull: {
-    type: Number
+    type: Number,
+    default: 0
   },
   bestPush: {
-    type: Number
+    type: Number,
+    default: 0
   },
-  bestMile: {
-    type: Number
+  bestMin: {
+    type: Number,
+    default: 99999
+  },
+  bestSec: {
+    type: Number,
+    default: 0
   },
   workouts: [],
   picture: {
@@ -42,16 +52,20 @@ UserSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.passwordHash);
 };
 
-UserSchema.statics.findOrCreateFacebook = function(profile) {
-  console.log(profile);
+UserSchema.statics.findOrCreateFacebook = function(profile, req) {
+  if (req.user) {
+    return updateUser(profile, req.user);
+  }
   return User.findOne({
     facebookId: profile.id
   }).then(user => {
     if (user) {
       return user;
     } else {
+      let nameArr = profile.displayName.split(" ");
       return new User({
-        displayName: profile.displayName,
+        fname: nameArr[0],
+        lname: nameArr[1],
         facebookId: profile.id,
         email: profile.emails[0].value,
         picture: profile.photos[0].value
@@ -59,6 +73,14 @@ UserSchema.statics.findOrCreateFacebook = function(profile) {
     }
   });
 };
+
+function updateUser(profile, user) {
+  return User.findByIdAndUpdate(user._id, {
+    $set: { facebookId: profile.id }
+  }).catch(err => {
+    console.log(err);
+  });
+}
 
 UserSchema.methods.getAccounts = async function() {
   let accounts = [];

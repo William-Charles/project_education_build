@@ -12,7 +12,7 @@ module.exports = new FacebookStrategy(
     passReqToCallback: true
   },
   function(req, accessToken, refreshToken, profile, done) {
-    User.findOrCreateFacebook(profile)
+    User.findOrCreateFacebook(profile, req)
       .then(user => {
         done(null, user);
       })
