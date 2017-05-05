@@ -1,0 +1,19 @@
+<div class="row">
+    <h1>Welcome to the Jungle</h1>
+    <div class="col-sm-6">
+        <div>{{currentUser.displayName}}</div>
+    </div>
+    <div class="col-sm-6">
+    <h2>Connected Accounts</h2>
+        <ul>
+            {{#each accounts as |account|}}
+            <li>
+                <div>{{account.name}}</div>
+                {{#if account.authorized}}
+                <a href="{{authPathDelete account.name}}" class="btn btn-danger">unauthorize</a> {{else}}
+                <a href="{{authPath account.name}}" class="btn btn-primary">authorize</a> {{/if}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
