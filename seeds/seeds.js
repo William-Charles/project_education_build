@@ -21,7 +21,7 @@ module.exports = () => {
   // Create Users
   // ----------------------------------------
   function workoutGen() {
-    const size = Math.floor(Math.random() * 25);
+    const size = Math.floor(Math.random() * 10 + 1);
     let obj = {};
     workouts = [];
     let push = 0;
