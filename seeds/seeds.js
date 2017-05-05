@@ -34,7 +34,7 @@ module.exports = () => {
         pull: Math.floor(Math.random() * 100),
         seconds: Math.floor(Math.random() * 59),
         minutes: Math.floor(Math.random() * 100),
-        date: faker.date.past
+        date: faker.date.past()
       };
       workouts.push(workout);
       workout.run = workout.minutes + workout.seconds / 60;
