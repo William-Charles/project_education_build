@@ -37,7 +37,6 @@ function runKings(users) {
       userA.bestMin + userA.bestSec / 60 - (userB.bestMin + userB.bestSec / 60)
     );
   });
-
   return users.map(user => {
     if (user.bestMin === 99999) {
       user.bestMin = 0;
