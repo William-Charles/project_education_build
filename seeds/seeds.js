@@ -57,12 +57,14 @@ module.exports = () => {
   var users = [];
   for (let i = 0; i < 13; i++) {
     var workoutGenResults = workoutGen();
+    let lastName = faker.company.bsBuzz();
+    lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
     let user = new User({
       fname: faker.name.firstName(),
-      lname: faker.company.bsBuzz(),
+      lname: lastName,
       email: `${faker.company.bsBuzz()}${i}@gmail.com`,
       picture: imageArr[i],
-      password: "demo",
+      password: "12345678",
       workouts: workoutGenResults.workouts,
       bestMin: workoutGenResults.min,
       bestSec: workoutGenResults.sec,
