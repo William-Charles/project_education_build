@@ -10,8 +10,7 @@ const UserSchema = mongoose.Schema({
     type: String
   },
   facebookId: {
-    type: String,
-    unique: true
+    type: String
   },
   email: {
     type: String,

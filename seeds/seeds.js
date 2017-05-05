@@ -1,7 +1,20 @@
 var faker = require("faker");
-var voca = require("voca");
 
-const imageArr = [];
+const imageArr = [
+  "https://cdn.peopleewnetwork.com/dims4/default/c099240/2147483647/thumbnail/654x368/quality/90/?url=https%3A%2F%2Fcdn.peopleewnetwork.com%2Ffb%2F82%2F7f9cbd184a68a9a3adcc2fd1fa24%2Fthumb-peoplefeat-kellyripa.jpg",
+  "http://dreamatico.com/data_images/people/people-2.jpg",
+  "http://assets.nydailynews.com/polopoly_fs/1.2400213.1445017578!/img/httpImage/image.jpg_gen/derivatives/article_750/brandon15f-7-web.jpg",
+  "http://piximus.net/media/20413/old-people-of-new-york-2.jpg",
+  "https://piximus.net/media/27818/people-of-new-york-7.jpg",
+  "https://laughingsquid.com/wp-content/uploads/tumblr_m82eawuTya1qggwnvo1_500.jpeg",
+  "https://colmhogan.files.wordpress.com/2013/10/humansnyc4.jpg?w=768",
+  "https://cdn.tutsplus.com/photo/uploads/legacy/732_streetportraits/1.jpg",
+  "https://i2.wp.com/www.brainpickings.org/wp-content/uploads/2016/03/hony1.jpg?fit=600%2C315&ssl=1",
+  "http://s3.amazonaws.com/media.wbur.org/wordpress/11/files/2014/10/1016_baby-batman.jpg",
+  "http://www.nyphotoreview.com/PANPICS/Image3496c.jpg",
+  "https://s-media-cache-ak0.pinimg.com/originals/8e/89/d8/8e89d84f945305f9bcfd9344e5dd2e13.jpg",
+  "https://s.yimg.com/ny/api/res/1.2/6n_tVrMtTmWLTpFKmRWawg--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://magazines.zenfs.com/resizer/original/c8i7VsJeMnWbFAxhtQ42KgrDfg8"
+];
 
 module.exports = () => {
   // ----------------------------------------
@@ -20,7 +33,7 @@ module.exports = () => {
         push: Math.floor(Math.random() * 100),
         pull: Math.floor(Math.random() * 100),
         seconds: Math.floor(Math.random() * 59),
-        minutes: Math.floor(Math.random() * 59),
+        minutes: Math.floor(Math.random() * 100),
         date: faker.date.past
       };
       workouts.push(workout);
@@ -33,70 +46,30 @@ module.exports = () => {
       }
     }
     obj.workouts = workouts;
-    return workouts;
+    obj.push = push;
+    obj.pull = pull;
+    obj.min = min;
+    obj.sec = sec;
+    return obj;
   }
 
   console.log("Creating Users");
   var users = [];
   for (let i = 0; i < 13; i++) {
+    var workoutGenResults = workoutGen();
     let user = new User({
       fname: faker.name.firstName(),
       lname: faker.company.bsBuzz(),
       email: `${faker.company.bsBuzz()}${i}@gmail.com`,
       picture: imageArr[i],
       password: "demo",
-      workouts: workoutGen()
+      workouts: workoutGenResults.workouts,
+      bestMin: workoutGenResults.min,
+      bestSec: workoutGenResults.sec,
+      bestPush: workoutGenResults.push,
+      bestPull: workoutGenResults.pull
     });
     users.push(user);
-  }
-
-  // ----------------------------------------
-  // Hotels
-  // ----------------------------------------
-  console.log("Creating Hotels");
-  var hotels = [];
-  for (let i = 0; i < MULTIPLIER * 100; i++) {
-    var hotel = new Hotel({
-      name: randomLodgingName("hotel")
-    });
-    hotels.push(hotel);
-  }
-
-  // ----------------------------------------
-  // Motels
-  // ----------------------------------------
-  console.log("Creating Motels");
-  var motels = [];
-  for (let i = 0; i < MULTIPLIER * 100; i++) {
-    var motel = new Motel({
-      name: randomLodgingName("motel")
-    });
-    motels.push(motel);
-  }
-
-  // ----------------------------------------
-  // Ratings
-  // ----------------------------------------
-  console.log("Creating Ratings");
-  var ratings = [];
-  for (let i = 0; i < MULTIPLIER * 1000; i++) {
-    var hotel = hotels[i % hotels.length];
-    var motel = motels[i % motels.length];
-    var user = users[1];
-    var hotelRating = new Rating({
-      ratable: hotel,
-      user: user,
-      value: randomRating()
-    });
-    var motelRating = new Rating({
-      ratable: motel,
-      user: user,
-      value: randomRating()
-    });
-    hotel.ratings.push(hotelRating);
-    motel.ratings.push(motelRating);
-    ratings.push(hotelRating);
-    ratings.push(motelRating);
   }
 
   // ----------------------------------------
@@ -104,7 +77,7 @@ module.exports = () => {
   // ----------------------------------------
   console.log("Saving...");
   var promises = [];
-  [users, hotels, motels, ratings].forEach(collection => {
+  [users].forEach(collection => {
     collection.forEach(model => {
       promises.push(model.save());
     });
