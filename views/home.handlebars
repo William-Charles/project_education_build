@@ -1,19 +1,31 @@
 <div class="row">
-    <h1>Welcome to the Jungle</h1>
-    <div class="col-sm-6">
-        <div>{{currentUser.displayName}}</div>
+  <div class="col-sm-6">
+    <h2>{{user.displayName}}</h2>
+    <a href="#" class="thumbnail">
+      <img src="{{user.picture}}" alt="...">
+    </a>
+    {{#each accounts as |account|}}
+      {{#if account.authorized}}
+      {{else}}
+        <a href="{{authPath account.name}}" class="btn btn-primary">Link Facebook</a>
+        {{/if}}
+    {{/each}}
+  </div>
+  <div class="col-sm-6">
+    <h2>Personal Best</h2>
+      <ul>
+        <li>Pull Ups - {{user.bestPull}}</li>
+        <li>Push Ups - {{user.bestPush}}</li>
+        <li>Fastest Mile - {{user.bestMile}}</li>
+      </ul>
     </div>
-    <div class="col-sm-6">
-    <h2>Connected Accounts</h2>
-        <ul>
-            {{#each accounts as |account|}}
-            <li>
-                <div>{{account.name}}</div>
-                {{#if account.authorized}}
-                <a href="{{authPathDelete account.name}}" class="btn btn-danger">unauthorize</a> {{else}}
-                <a href="{{authPath account.name}}" class="btn btn-primary">authorize</a> {{/if}}
-            </li>
-            {{/each}}
-        </ul>
-    </div>
+</div>
+<div class="col-sm-8 col-sm-offset-2">
+  {{#each user.workouts as |workout|}}
+  <ul>
+    <li>Pull Ups - {{workout.push}}</li>
+    <li>Push Ups - {{workout.pull}}</li>
+    <li>Mile - {{workout.mile}}</li>
+  </ul>
+  {{/each}}
 </div>

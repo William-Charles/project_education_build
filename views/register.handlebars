@@ -3,16 +3,29 @@
 </div>
 <div class="well col-sm-4 col-sm-offset-4">
   <h2>Register</h2>
-  <form class="" action="/login" method="post">
+  <form action="/register" method="post">
     <div class="form-group">
-      <label for="">Email</label>
-      <input type="text" name="email" value="" class="form-control">
+      <label for="fname">First Name</label>
+      <input type="text" name="fname" value="" class="form-control">
     </div>
     <div class="form-group">
-      <label for="">Password</label>
-      <input type="password" name="password" value="" class="form-control">
+      <label for="lname">Last Name</label>
+      <input type="text" name="lname" value="" class="form-control">
     </div>
-    <button class="btn btn-default">Log In</button>
+    <div class="form-group">
+      <label for="picture">Image Url</label>
+      <input type="url" name="picture" value="" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" name="email" value="" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" minlength="8" maxlength="22" class="form-control">
+    </div>
+    <button class="btn btn-success">Register</button>
+    or
     <a href="/auth/facebook">
         <span class="btn btn-primary">
         Register with Facebook

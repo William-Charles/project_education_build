@@ -1,0 +1,21 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <h1>Viking Fitness</h1>
+</div>
+<div class="well col-sm-4 col-sm-offset-4">
+  <form action="/vikings/workout" method="post">
+    <div class="form-group">
+      <label for="pull">Pull Ups</label>
+      <input type="number" name="pull" class="form-control" placeholder="Total Reps" min="0">
+    </div>
+    <div class="form-group">
+      <label for="push">Push Ups</label>
+      <input type="number" name="push" class="form-control" placeholder="Total Reps" min="0">
+    </div>
+    <div class="form-group">
+      <label for="mile">Mile Run Time</label>
+      <input type="number" name="mile" class="form-control" placeholder="Minutes" min="0">
+      <input type="number" name="mile" class="form-control" placeholder="Seconds" max="59" min="0">
+    </div>
+    <button class="btn btn-success">Post Workout</button>
+  </form>
+</div>

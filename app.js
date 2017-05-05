@@ -59,6 +59,14 @@ let passport = require("./services/passports")(app);
 const authenticateRouter = require("./routes/authenticate")(passport);
 app.use("/auth/", authenticateRouter);
 
+// ----------------------------------------
+// currentUser
+// ----------------------------------------
+app.use((req, res, next) => {
+  if (req.user) res.locals.currentUser = req.user;
+  next();
+});
+
 const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
 

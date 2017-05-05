@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { loggedOutOnly } = require("../services/session");
 
 module.exports = passport => {
   router.get(
@@ -12,6 +13,15 @@ module.exports = passport => {
   router.get(
     "/facebook/callback",
     passport.authenticate("facebook", {
+      successRedirect: "/vikings",
+      failureRedirect: "/login"
+    })
+  );
+
+  router.post(
+    "/login",
+    loggedOutOnly,
+    passport.authenticate("local", {
       successRedirect: "/vikings",
       failureRedirect: "/login"
     })
