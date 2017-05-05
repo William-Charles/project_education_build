@@ -49,7 +49,6 @@ router.post("/workout", loggedInOnly, function(req, res) {
     best.bestPush = body.pushup;
   }
 
-  console.log(req.user);
   User.findByIdAndUpdate(req.user._id, {
     $set: {
       bestMin: best.bestMin,
@@ -60,7 +59,6 @@ router.post("/workout", loggedInOnly, function(req, res) {
     $push: { workouts: workout }
   })
     .then(user => {
-      console.log(user);
       res.redirect("/vikings");
     })
     .catch(err => {

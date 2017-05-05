@@ -3,9 +3,4 @@ function authPath(value) {
   return `/auth/${value}`;
 }
 
-function authPathDelete(value) {
-  value = value.toLowerCase();
-  return `/auth/${value}/delete`;
-}
-
-module.exports = { authPath, authPathDelete };
+module.exports = { authPath };
