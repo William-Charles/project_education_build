@@ -29,7 +29,7 @@ router.post("/workout", loggedInOnly, function(req, res) {
     pull: body.pullup,
     seconds: body.seconds,
     minutes: body.minutes,
-    date: Date.now()
+    date: body.date
   };
   let best = {
     bestMin: record.bestMin,
@@ -62,6 +62,20 @@ router.post("/workout", loggedInOnly, function(req, res) {
     .then(user => {
       console.log(user);
       res.redirect("/vikings");
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect("/vikings");
+    });
+});
+
+router.get("/show/:id", loggedInOnly, function(req, res, next) {
+  User.findById(req.params.id)
+    .then(user => {
+      if (user.bestMin === 99999) {
+        user.bestMin = 0;
+      }
+      res.render("show", { user });
     })
     .catch(err => {
       console.log(err);

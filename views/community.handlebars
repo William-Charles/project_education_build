@@ -14,8 +14,8 @@
     </a>
   </div>
   <div class="col-sm-4">
-    <h4>Push up Boss: {{pullRankings.[0].fname}} {{pullRankings.[0].lname}}</h4>
-    <h6>A Feakish {{pullRankings.[0].bestPull}} Push ups</h6>
+    <h4>Pull up Pulverizer: {{pullRankings.[0].fname}} {{pullRankings.[0].lname}}</h4>
+    <h6>A Feakish {{pullRankings.[0].bestPull}} Pull ups</h6>
     <a href="#" class="thumbnail">
       <img src="{{pullRankings.[0].picture}} " alt="...">
     </a>
@@ -30,14 +30,15 @@
         <th>Name</th>
         <th>Push ups</th>
       </thead>
-
-      {{#each pullRankings as |workout|}}
       <tbody>
-        <td>{{@index}}</td>
-        <td>{{workout.fname}} {{workout.lname}}</td>
-        <td>{{workout.bestPull}}</td>
+        {{#each pushRankings as |workout|}}
+          <tr>
+              <td>{{@index}}</td>
+              <td><a href="/vikings/show/{{workout.id}}">{{workout.fname}} {{workout.lname}}</a></td>
+              <td>{{workout.bestPush}}</td>
+            </tr>
+        {{/each}}
       </tbody>
-      {{/each}}
     </table>
   </div>
   <div class="col-sm-4">
@@ -45,16 +46,17 @@
       <thead>
         <th>Rank</th>
         <th>Name</th>
-        <th>Push ups</th>
+        <th>Mile Run</th>
       </thead>
-
-      {{#each pushRankings as |workout|}}
       <tbody>
-        <td>{{@index}}</td>
-        <td>{{workout.fname}} {{workout.lname}}</td>
-        <td>{{workout.bestPush}}</td>
+        {{#each runRankings as |workout|}}
+          <tr>
+            <td>{{@index}}</td>
+            <td><a href="/vikings/show/{{workout.id}}"> {{workout.fname}} {{workout.lname}}</a></td>
+            <td>{{workout.bestMin}}:{{workout.bestSec}}</td>
+          </tr>
+        {{/each}}
       </tbody>
-      {{/each}}
     </table>
   </div>
   <div class="col-sm-4">
@@ -62,17 +64,17 @@
       <thead>
         <th>Rank</th>
         <th>Name</th>
-        <th>Push ups</th>
+        <th>Pull ups</th>
       </thead>
-
-      {{#each runRankings as |workout|}}
       <tbody>
-        <td>{{@index}}</td>
-        <td>{{workout.fname}} {{workout.lname}}</td>
-        {{#if}}
-        <td>{{workout.bestMin}}:{{workout.bestSec}}</td>
+        {{#each pullRankings as |workout|}}
+          <tr>
+              <td>{{@index}}</td>
+              <td><a href="/vikings/show/{{workout.id}}">{{workout.fname}} {{workout.lname}}</a></td>
+              <td>{{workout.bestPull}}</td>
+            </tr>
+        {{/each}}
       </tbody>
-      {{/each}}
     </table>
   </div>
 </div>

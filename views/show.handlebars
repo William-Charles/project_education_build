@@ -4,12 +4,6 @@
     <a href="#" class="thumbnail">
       <img src="{{user.picture}}" alt="...">
     </a>
-    {{#each accounts as |account|}}
-      {{#if account.authorized}}
-      {{else}}
-        <a href="{{authPath account.name}}" class="btn btn-primary">Link Facebook</a>
-        {{/if}}
-    {{/each}}
   </div>
   <div class="col-sm-6">
     <h2>Personal Best</h2>
