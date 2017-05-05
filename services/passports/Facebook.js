@@ -8,7 +8,7 @@ module.exports = new FacebookStrategy(
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: process.env.FACEBOOK_CALLBACK_URL ||
       "http://localhost:3000/auth/facebook/callback",
-    profileFields: ["id", "displayName", "emails", "photos"],
+    profileFields: ["id", "displayName", "emails", "picture.type(large)"],
     passReqToCallback: true
   },
   function(req, accessToken, refreshToken, profile, done) {
