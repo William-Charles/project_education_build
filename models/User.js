@@ -3,6 +3,10 @@ const uniqueValidator = require("mongoose-unique-validator");
 const bcrypt = require("bcrypt");
 
 const UserSchema = mongoose.Schema({
+  first_login: {
+    type: Boolean,
+    default: true
+  },
   userType: {
     type: []
   },
@@ -22,24 +26,34 @@ const UserSchema = mongoose.Schema({
   passwordHash: {
     type: String
   },
-  bestPull: {
-    type: Number,
-    default: 0
-  },
-  bestPush: {
-    type: Number,
-    default: 0
-  },
-  bestMin: {
-    type: Number,
-    default: 99999
-  },
-  bestSec: {
-    type: Number,
-    default: 0
-  },
-  workouts: [],
   picture: {
+    type: String
+  },
+  dob: {
+    type: Date
+  },
+  heightFeet: {
+    type: Number
+  },
+  heightInches: {
+    type: Number
+  },
+  sports: {
+    type: String
+  },
+  players: {
+    type: String
+  },
+  vacation: {
+    type: String
+  },
+  foods: {
+    type: String
+  },
+  color: {
+    type: String
+  },
+  introLink: {
     type: String
   }
 });

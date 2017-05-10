@@ -24,4 +24,6 @@ function runKings(users) {
   });
 }
 
-module.exports = { pullKings, pushKings, runKings };
+function updateStudent(userInfo) {}
+
+module.exports = { pullKings, pushKings, runKings, updateStudent };

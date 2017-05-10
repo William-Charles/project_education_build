@@ -5,16 +5,27 @@ const User = require("../models").User;
 
 router.get("/", loggedInOnly, function(req, res, next) {
   const user = req.user;
-
-  user
-    .getAccounts()
-    .then(accounts => {
-      if (user.bestMin === 99999) {
-        user.bestMin = 0;
+  if (user.first_login) {
+    User.findByIdAndUpdate(req.user._id, {
+      $set: {
+        first_login: false
       }
-      res.render("home", { accounts, user });
     })
-    .catch(next);
+      .then(user => {
+        res.render("spark/editUser");
+      })
+      .catch(next);
+  } else {
+    user
+      .getAccounts()
+      .then(accounts => {
+        if (user.bestMin === 99999) {
+          user.bestMin = 0;
+        }
+        res.render("home", { accounts, user });
+      })
+      .catch(next);
+  }
 });
 
 router.get("/workout", loggedInOnly, function(req, res) {
