@@ -2,30 +2,25 @@
 
 
     <div class="col-sm-6">
-      {{#each products as |product| }}
-        <div id="product{{product.id}}" class="checkout-item my-3">
-          <a href="/products/{{ product.id }}">
-            <img class="checkout-image" src="{{product.img}}">
-          </a>
-          <div class="checkout-desc">
-            <h4 class="card-title">
-              <a href="/products/{{ product.id }}">
-                {{product.name}}
-              </a>
-            </h4>
-            <div>
-              {{currency product.price}}<span class="mx-2">x</span> {{product.quantity}}
-            </div>
-            <div class="mt-4">
-              Subtotal: {{currency product.subtotal}}
-            </div>
-          </div>
-        </div>
-      {{/each }}
+      <table class="table table-striped">
+        <h4>{{plan.name}}</h4>
+        <thead>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          {{#each plan.features as |feature|}}
+            <tr>
+              <td>{{feature.featureName}}</td>
+              <td><span class="glyphicon glyphicon-{{feature.included}}" aria-hidden="true"></span></td>
+            </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
       <div id="total" class="bigger">
-        Total:
+        Total: ${{ plan.price}}
       </div>
-      <span class="bigger">{{ total}}</span>
     </div>
 
     <div class="col-sm-6">

@@ -70,6 +70,9 @@ app.use((req, res, next) => {
 const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
 
+const sparkRouter = require("./routes/spark");
+app.use("/spark", sparkRouter);
+
 const checkoutRouter = require("./routes/checkout");
 app.use("/checkout", checkoutRouter);
 

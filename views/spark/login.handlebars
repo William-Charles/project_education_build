@@ -1,0 +1,25 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <h4>Welcome to</h4>
+  <h1>A Step Beyond</h1>
+</div>
+<div class="well col-sm-4 col-sm-offset-4">
+  <h2>Login</h2>
+  <form action="/auth/login" method="post">
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="text" name="email" value="" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" name="password" value="" class="form-control">
+    </div>
+    <button class="btn btn-default">Log In</button>
+    <a href="/auth/facebook">
+        <span class="btn btn-primary">
+        Login with Facebook
+      </span>
+    </a>
+  </form>
+  <br>
+  <a href="spark/register">Or Register</a>
+</div>

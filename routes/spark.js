@@ -6,7 +6,7 @@ const Plan = require("../models").Plan;
 const { loggedInOnly, loggedOutOnly } = require("../services/session");
 
 router.get("/", loggedOutOnly, function(req, res) {
-  res.redirect("/vikings");
+  res.render("spark/login");
 });
 
 router.get("/login", loggedOutOnly, function(req, res) {
@@ -14,7 +14,7 @@ router.get("/login", loggedOutOnly, function(req, res) {
 });
 
 router.get("/register", loggedOutOnly, function(req, res) {
-  res.render("register");
+  res.render("spark/register");
 });
 
 router.post("/register", loggedOutOnly, (req, res, next) => {

@@ -1,0 +1,34 @@
+<div class="col-sm-12">
+  <h1>Plans</h1>
+</div>
+
+
+
+    {{#each plans as |plan| }}
+    <div class="well col-sm-3">
+      <table class="table table-striped">
+        <h4>{{plan.name}}</h4>
+        <thead>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          {{#each plan.features as |feature|}}
+            <tr>
+              <td>{{feature.featureName}}</td>
+              <td><span class="glyphicon glyphicon-{{feature.included}}" aria-hidden="true"></span></td>
+            </tr>
+          {{/each}}
+          <tr>
+            <td>price</td>
+            <td>${{plan.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="/checkout/{{plan._id}}">
+          <span class="btn btn-success">
+          Select {{plan.name}}
+        </span>
+      </a>
+    </div>
+    {{/each}}
