@@ -16,11 +16,11 @@ router.get("/register", loggedOutOnly, function(req, res) {
 });
 
 router.post("/register", loggedOutOnly, (req, res, next) => {
-  const { fname, lname, picture, email, password } = req.body;
+  const { fname, lname, picture, email, password, userType } = req.body;
   const user = new User({
+    userType: userType,
     fname: fname,
     lname: lname,
-    picture: picture,
     email: email,
     password: password
   });
@@ -29,10 +29,14 @@ router.post("/register", loggedOutOnly, (req, res, next) => {
     .then(user => {
       req.login(user, err => {
         if (err) throw err;
-        res.redirect("/vikings");
+        res.redirect("/plans");
       });
     })
     .catch(next);
+});
+
+router.get("/plans", loggedInOnly, (req, res) => {
+  res.render("plans");
 });
 
 router.get("/logout", loggedInOnly, (req, res) => {

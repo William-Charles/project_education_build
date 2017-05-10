@@ -10,7 +10,7 @@ router.get("/", loggedInOnly, function(req, res, next) {
       let pullRankings = pullKings(users.slice());
       let pushRankings = pushKings(users.slice());
       let runRankings = runKings(users.slice());
-      res.render("community", { pullRankings, pushRankings, runRankings });
+      res.render("plans", { pullRankings, pushRankings, runRankings });
     })
     .catch(err => {
       console.log(err);

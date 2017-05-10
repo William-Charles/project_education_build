@@ -1,0 +1,15 @@
+<div role="tabpanel" class="tab-pane active" id="posts">
+  <ol class="list-group">
+
+    {{#each features as |feature| }}
+      <li class="list-group-item">
+        <div class="ratable hotel">
+            <h3>{{ feature.name }}</h3>
+          </a>
+          <h6>score: {{ feature.desc }}</h6>
+
+        </div>
+        </li>
+    {{/each}}
+  </ol>
+</div>

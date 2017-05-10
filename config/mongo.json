@@ -1,10 +1,10 @@
 {
   "development": {
-    "database": "project_midterm_development",
+    "database": "project_education_development",
     "host": "localhost"
   },
   "test": {
-    "database": "project_midterm_test",
+    "database": "project_education_test",
     "host": "localhost"
   },
   "production": {

@@ -18,3 +18,42 @@ Ok there is a bit of setup to get this bad mamajama up and running.
 
 
 **IMPORTANT: Modify this file to add description to how we will start/use your app.**
+spark My Kid  
+2 landing pages one for kids on for   parents/teachers  
+
+spark.camp  
+is kids landing page  
+
+4 roles parent teacher
+
+parent email/password
+
+teachers have courses  
+  courses have sections  
+  revinue per courses  
+  badges  
+  total revinue  
+  create a new courses  
+
+  challenges
+  quizes
+  layers of sub categories  
+
+
+
+student
+  email password  
+  courses
+  status of the courses  
+  how many challenges have been completed
+
+
+admin  
+  view of teachers status
+  approval of courses  
+
+
+
+Mongo data structure  
+
+User  

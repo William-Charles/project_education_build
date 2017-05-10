@@ -3,6 +3,9 @@ const uniqueValidator = require("mongoose-unique-validator");
 const bcrypt = require("bcrypt");
 
 const UserSchema = mongoose.Schema({
+  userType: {
+    type: []
+  },
   fname: {
     type: String
   },

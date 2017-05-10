@@ -1,9 +1,19 @@
 <div class="col-sm-4 col-sm-offset-4">
-  <h1>Viking Fitness</h1>
+  <h1>Let's Get Started</h1>
 </div>
 <div class="well col-sm-4 col-sm-offset-4">
   <h2>Register</h2>
   <form action="/register" method="post">
+    <div class="form-group">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary active">
+          <input type="radio" name="userType" value="parent" autocomplete="off" checked>Parent
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="userType" value="teacher" autocomplete="off">Teacher
+        </label>
+      </div>
+    </div>
     <div class="form-group">
       <label for="fname">First Name</label>
       <input type="text" name="fname" value="" class="form-control" required="required">
@@ -11,10 +21,6 @@
     <div class="form-group">
       <label for="lname">Last Name</label>
       <input type="text" name="lname" value="" class="form-control" required="required">
-    </div>
-    <div class="form-group">
-      <label for="picture">Image Url</label>
-      <input type="url" name="picture" value="" class="form-control" required="required">
     </div>
     <div class="form-group">
       <label for="email">Email</label>

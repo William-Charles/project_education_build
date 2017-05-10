@@ -70,6 +70,12 @@ app.use((req, res, next) => {
 const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
 
+const checkoutRouter = require("./routes/checkout");
+app.use("/checkout", checkoutRouter);
+
+const adminRouter = require("./routes/admin");
+app.use("/admin", adminRouter);
+
 const vikingsRouter = require("./routes/vikings");
 app.use("/vikings", vikingsRouter);
 

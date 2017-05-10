@@ -1,0 +1,29 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <h1>New Plan</h1>
+</div>
+<div class="well col-sm-8 col-sm-offset-2">
+  <form action="/admin/newPlan" method="post">
+    <div class="form-group">
+      <label for="fname">Plan Name</label>
+      <input type="text" name="fname" value="" class="form-control" required="required">
+    </div>
+    <h3>Features</h3>
+    {{#each features as |feature| }}
+      <div>
+        <label for="subscribeNews">{{feature.name}}</label>
+        <label for="subscribeNews">{{feature.desc}}</label>
+        <input type="checkbox" name="features[ name ]">
+      </div>
+    {{/each}}
+
+    <br>
+    <br>
+    <div class="form-group">
+      <label for="price">Price for Plan</label>
+      <input type="number" name="price"  class="form-control" required="required">
+    </div>
+    <button class="btn btn-success">Add Plan</button>
+
+  </form>
+
+</div>
