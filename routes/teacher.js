@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+var AWS = require("aws-sdk");
 const User = require("../models").User;
 const Plan = require("../models").Plan;
 const Course = require("../models").Course;
@@ -38,6 +39,20 @@ router.get("/login", loggedOutOnly, function(req, res) {
 
 router.get("/register", loggedOutOnly, function(req, res) {
   res.render("spark/register");
+});
+
+router.get("/addCourse", loggedInOnly, function(req, res) {
+  res.render("teacher/addCourse");
+});
+
+router.post("/addCourse", loggedInOnly, (req, res, next) => {
+  const course = new Course(req.body);
+  course
+    .save()
+    .then(course => {
+      res.render("teacher/addChallenge", { course });
+    })
+    .catch(next);
 });
 
 router.get("/editUser", loggedInOnly, function(req, res) {

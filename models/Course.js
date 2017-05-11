@@ -7,6 +7,12 @@ const CourseSchema = mongoose.Schema({
   desc: {
     type: String
   },
+  outline: {
+    type: String
+  },
+  image: {
+    type: String
+  },
   category: {
     type: String
   },
@@ -14,7 +20,8 @@ const CourseSchema = mongoose.Schema({
     type: String
   },
   challenges: {
-    type: []
+    type: [],
+    default: []
   }
 });
 

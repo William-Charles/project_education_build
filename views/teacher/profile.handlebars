@@ -7,7 +7,7 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <h2>{{user.fname}} {{user.lname}}</h2>
     <a href="#" class="thumbnail">
       <img src="{{user.picture}}" alt="...">
@@ -18,53 +18,37 @@
         <a href="{{authPath account.name}}" class="btn btn-primary">Link Facebook</a>
         {{/if}}
     {{/each}}
-  </div>
-  <div class="col-sm-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h4>Birthday {{user.dob}}</h4>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h4>Height - {{user.heightFeet}}' {{user.heightInches}}"</h4>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h4>Username - {{user.username}}</h4>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="col-xs-12">
-  <h2>Favorites</h2>
-  <table class="table table-striped">
-    <thead>
-      <th></th>
-      <th></th>
-    </thead>
+    <h4>Teaches</h4>
+    <ul>
+      {{#each user.courses as |course|}}
+        <li>course.name</li>
+      {{/each}}
+    </ul>
+    <h4>About {{user.fname}}</h4>
+    <h6>{{user.state}}</h6>
 
-    <tbody>
-      <tr>
-        <td>Favorite Sports</td>
-        <td>{{user.sports}}</td>
-      </tr>
-      <tr>
-        <td>Favorite Players</td>
-        <td>{{user.players}}</td>
-      </tr>
-      <tr>
-        <td>Favorite Foods</td>
-        <td>{{user.foods}}</td>
-      </tr>
-      <tr>
-        <td>Dream Vacation</td>
-        <td>{{user.vacation}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="col-sm-6 col-sm-offset-3 well">
-  <h3>Introduction Video</h3>
+    <h4>Languages</h4>
+    <ul>
+      {{#each user.langs as |lang|}}
+        <li>lang</li>
+      {{/each}}
+    </ul>
+    <div class="jumbotron">
+
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="panel panel-default">
+      <h3>{{user.fname}}'s Story</h3>
+      <p>{{user.story}}</p>
+    </div>
+    <h4>Courses offered by {{user.fname}}</h4>
+    <div class="jumbotron">
+
+    </div>
+    <h4>Testimonials</h4>
+    <div class="jumbotron">
+
+    </div>
+  </div>
 </div>
