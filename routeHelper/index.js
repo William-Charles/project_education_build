@@ -34,4 +34,33 @@ function updateUserInfo(userInfo) {
   return { $set: updateObj };
 }
 
-module.exports = { pullKings, pushKings, runKings, updateUserInfo };
+function createChallenge(formInfo) {
+  let quiz = [];
+  let challenge = {};
+
+  challenge.name = formInfo.name;
+  challenge.desc = formInfo.desc;
+  challenge.notes = formInfo.notes;
+  challenge.video = formInfo.video;
+  challenge.mock = formInfo.mock;
+
+  for (let i = 0; i < 5; i++) {
+    let question = {};
+    question.correct = formInfo[`right1-${i}`];
+    question.incorrect1 = formInfo[`false1-${i}`];
+    question.incorrect2 = formInfo[`false2-${i}`];
+    question.incorrect3 = formInfo[`false3-${i}`];
+    question.incorrect4 = formInfo[`false4-${i}`];
+    quiz.push(question);
+  }
+
+  return challenge;
+}
+
+module.exports = {
+  pullKings,
+  pushKings,
+  runKings,
+  updateUserInfo,
+  createChallenge
+};

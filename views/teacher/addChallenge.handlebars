@@ -1,0 +1,170 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <h1>{{course.name}}</h1>
+</div>
+<div class="well col-sm-8 col-sm-offset-2">
+  <h2>New Challenge</h2>
+  <form action="/teacher/addChallenge/{{course.id}}" method="post">
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" name="name" value="" class="form-control" required="">
+    </div>
+    <div class="form-group">
+      <label for="desc">Description</label>
+      <textarea type="text" name="desc" value="" class="form-control" required=""></textarea>
+    </div>
+    <div class="form-group">
+      <label for="notes">Theory Notes</label>
+      <textarea type="text" name="notes" value="" class="form-control" required=""></textarea>
+    </div>
+    <div class="form-group">
+      <label for="video">Video Url</label>
+      <input type="text" name="video" minlength="8" maxlength="22" class="form-control" required="">
+    </div>
+    <div class="form-group">
+      <label for="mock">Mock Up PDF</label>
+      <input type="text" name="mock" minlength="8" maxlength="22" class="form-control">
+    </div>
+
+    <h3>Quiz</h3>
+    <div class="form-group">
+      <label for="question1">First Question</label>
+      <input type="text" name="question1" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="right-1">Correct Answer</label>
+      <input type="text" name="right1-1" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false1-1">Wrong Answer</label>
+      <input type="text" name="false1-1" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false2-1">Wrong Answer</label>
+      <input type="text" name="false2-1" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false3-1">Wrong Answer</label>
+      <input type="text" name="false3-1" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false4-1">Wrong Answer</label>
+      <input type="text" name="false4-1" class="form-control">
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+      <label for="question2">First Question</label>
+      <input type="text" name="question2" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="right-2">Correct Answer</label>
+      <input type="text" name="right1-2" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false1-2">Wrong Answer</label>
+      <input type="text" name="false1-2" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false2-2">Wrong Answer</label>
+      <input type="text" name="false2-2" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false3-2">Wrong Answer</label>
+      <input type="text" name="false3-2" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false4-2">Wrong Answer</label>
+      <input type="text" name="false4-2" class="form-control">
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+      <label for="question3">First Question</label>
+      <input type="text" name="question3" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="right-3">Correct Answer</label>
+      <input type="text" name="right1-3" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false1-3">Wrong Answer</label>
+      <input type="text" name="false1-3" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false2-3">Wrong Answer</label>
+      <input type="text" name="false2-3" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false3-3">Wrong Answer</label>
+      <input type="text" name="false3-3" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false4-3">Wrong Answer</label>
+      <input type="text" name="false4-3" class="form-control">
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+      <label for="question4">First Question</label>
+      <input type="text" name="question4" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="right1-4">Correct Answer</label>
+      <input type="text" name="right1-4" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false1-4">Wrong Answer</label>
+      <input type="text" name="false1-4" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false2-4">Wrong Answer</label>
+      <input type="text" name="false2-4" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false3-4">Wrong Answer</label>
+      <input type="text" name="false3-4" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false4-4">Wrong Answer</label>
+      <input type="text" name="false4-4" class="form-control">
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+      <label for="question5">First Question</label>
+      <input type="text" name="question5" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="right-5">Correct Answer</label>
+      <input type="text" name="right1-5" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false1-5">Wrong Answer</label>
+      <input type="text" name="false1-5" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false2-5">Wrong Answer</label>
+      <input type="text" name="false2-5" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false3-5">Wrong Answer</label>
+      <input type="text" name="false3-5" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="false4-5">Wrong Answer</label>
+      <input type="text" name="false4-5" class="form-control">
+    </div>
+
+
+
+    <button class="btn btn-success">Add Challenge</button>
+  </form>
+</div>

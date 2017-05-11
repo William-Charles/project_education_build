@@ -4,7 +4,7 @@ var AWS = require("aws-sdk");
 const User = require("../models").User;
 const Plan = require("../models").Plan;
 const Course = require("../models").Course;
-const { updateUserInfo } = require("../routeHelper/index");
+const { updateUserInfo, createChallenge } = require("../routeHelper/index");
 
 const { loggedInOnly, loggedOutOnly } = require("../services/session");
 
@@ -49,6 +49,17 @@ router.post("/addCourse", loggedInOnly, (req, res, next) => {
   const course = new Course(req.body);
   course
     .save()
+    .then(course => {
+      res.render("teacher/addChallenge", { course });
+    })
+    .catch(next);
+});
+
+router.post("/addChallenge/:id", loggedInOnly, (req, res, next) => {
+  const challengeObj = createChallenge(req.body);
+  Course.findByIdAndUpdate(req.params.id, {
+    $push: { challenges: challengeObj }
+  })
     .then(course => {
       res.render("teacher/addChallenge", { course });
     })
