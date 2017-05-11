@@ -55,6 +55,9 @@ const UserSchema = mongoose.Schema({
   },
   introLink: {
     type: String
+  },
+  courses: {
+    type: []
   }
 });
 

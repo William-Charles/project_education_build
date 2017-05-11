@@ -11,10 +11,10 @@ router.get("/login", loggedOutOnly, function(req, res) {
   res.render("spark/login");
 });
 
-router.get("/home", loggedInOnly, function(req, res, next) {
+router.get("/profile", loggedInOnly, function(req, res, next) {
   User.findById(req.user.id)
     .then(user => {
-      res.render("spark/profile", { user });
+      res.render("teacher/profile", { user });
     })
     .catch(next);
 });
@@ -41,14 +41,14 @@ router.get("/register", loggedOutOnly, function(req, res) {
 });
 
 router.get("/editUser", loggedInOnly, function(req, res) {
-  res.render("spark/editUser");
+  res.render("teacher/editUser");
 });
 
 router.post("/editUser", loggedInOnly, (req, res, next) => {
   const userUpdate = updateUserInfo(req.body);
   User.findByIdAndUpdate(req.user.id, userUpdate)
     .then(user => {
-      res.redirect("/spark/home");
+      res.redirect("/teacher/profile");
     })
     .catch(next);
 });

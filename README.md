@@ -46,11 +46,33 @@ student
   courses
   status of the courses  
   how many challenges have been completed
+  course[{
+    challenge:
+    }]
 
 
 admin  
   view of teachers status
   approval of courses  
+
+
+
+course  
+  category  
+  interest  
+  challenges  
+    videos
+    notes
+    mockups
+    quiz  
+
+
+
+
+
+
+
+
 
 
 

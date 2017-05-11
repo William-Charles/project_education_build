@@ -79,6 +79,9 @@ app.use("/checkout", checkoutRouter);
 const adminRouter = require("./routes/admin");
 app.use("/admin", adminRouter);
 
+const teacherRouter = require("./routes/teacher");
+app.use("/teacher", teacherRouter);
+
 const vikingsRouter = require("./routes/vikings");
 app.use("/vikings", vikingsRouter);
 

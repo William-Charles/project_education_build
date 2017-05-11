@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>{{user.fname}} {{user.lname}}</h2>
+    <a href="#" class="thumbnail">
+      <img src="{{user.picture}}" alt="...">
+    </a>
+  </div>
+  <div class="col-sm-6">
+    <h2>Personal Best</h2>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>Pull Ups - {{user.bestPull}}</h4>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>Push Ups - {{user.bestPush}}</h4>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>Fastest Mile - {{user.bestMin}}:{{user.bestSec}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xs-12">
+  <h2>Courses</h2>
+
+    {{#each courses as |course|}}
+      {{#each course.challenges as |challenge|}}
+        <div class="col-sm-4">
+          <div class="card my-3 thumb-height">
+            <a href="/products/{{ product.id }}">
+              <img class="card-img-top gallery-image" src="{{product.img}}">
+            </a>
+            <div class="card-block">
+              <div class="float-right">
+                {{../course.name}}
+              </div>
+              <h4 class="card-title">
+                <a href="/products/{{ product.id }}">
+                  Challenge: {{challenge.name}}
+                </a>
+              </h4>
+              <p class="card-text">
+                in
+                <a href="/categories/{{ product.Category.id }}">
+                  {{product.Category.name}}
+                </a>
+              </p>
+              {{> shared/_cartButton cartIds=cartIds productId=product.id}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/each}}
+
+  </table>
+</div>

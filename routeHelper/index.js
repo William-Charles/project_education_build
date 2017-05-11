@@ -24,6 +24,14 @@ function runKings(users) {
   });
 }
 
-function updateStudent(userInfo) {}
+function updateUserInfo(userInfo) {
+  let updateObj = {};
+  for (let key in userInfo) {
+    if (userInfo[key] !== "") {
+      updateObj[key] = userInfo[key];
+    }
+  }
+  return { $set: updateObj };
+}
 
-module.exports = { pullKings, pushKings, runKings, updateStudent };
+module.exports = { pullKings, pushKings, runKings, updateUserInfo };
