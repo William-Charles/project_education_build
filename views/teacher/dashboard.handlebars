@@ -1,0 +1,91 @@
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-sm-9">
+          <h1>Teacher Dashboard</h1>
+        </div>
+        <div class="col-sm-3">
+          <div class="row">
+            <a class="btn btn-primary" href="#">Create a new Course</a>
+          </div>
+          <br>
+          <div class="row">
+            <a class="btn btn-default" href="#">Create a new Announcement</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="jumbotron">
+      <div class="row">
+        <table class="table">
+          <thead>
+            <th>Total Revinue</th>
+            <th>Total Students</th>
+            <th>Student Reviews</th>
+            <th>Average Rating</th>
+            <th>Badge Level Earned</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2,001.02</td>
+              <td>210</td>
+              <td>37</td>
+              <td>4.6</td>
+              <td>pro</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <div class="col-xs-6">
+          <table class="table">
+          <thead>
+            <th>Courses Under Review</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Basic HTML</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="col-xs-6">
+          <table class="table">
+          <thead>
+            <th>Courses Under Draft</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Intermediate HTML</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <h2>Courses you offer</h2>
+  <div class="row">
+    {{#each courses as |course|}}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="course.image" alt="{{course.desc}}">
+        <div class="caption">
+          <h3>{{course.name}}</h3>
+          <p>{{course.desc}}</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>

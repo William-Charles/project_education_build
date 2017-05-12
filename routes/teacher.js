@@ -21,14 +21,9 @@ router.get("/profile", loggedInOnly, function(req, res, next) {
 });
 
 router.get("/dashboard", loggedInOnly, function(req, res, next) {
-  User.findById(req.user.id)
-    .then(user => {
-      let courseIdArray = user.courses.map(course => {
-        return course.courseId;
-      });
-      Course.find({ courseId: { $in: [courseIdArray] } }).then(courses => {
-        res.render("spark/dashboard", { user, courses });
-      });
+  Course.find({})
+    .then(courses => {
+      res.render("teacher/dashboard", { courses });
     })
     .catch(next);
 });
@@ -55,13 +50,29 @@ router.post("/addCourse", loggedInOnly, (req, res, next) => {
     .catch(next);
 });
 
+router.get("/editCourse/:id", loggedInOnly, function(req, res, next) {
+  Course.findById(req.params.id)
+    .then(course => {
+      res.render("teacher/editCourse", { course });
+    })
+    .catch(next);
+});
+
+router.get("/addChallenge/:id", loggedInOnly, function(req, res, next) {
+  Course.findById(req.params.id)
+    .then(course => {
+      res.render("teacher/addChallenge", { course });
+    })
+    .catch(next);
+});
+
 router.post("/addChallenge/:id", loggedInOnly, (req, res, next) => {
   const challengeObj = createChallenge(req.body);
   Course.findByIdAndUpdate(req.params.id, {
     $push: { challenges: challengeObj }
   })
     .then(course => {
-      res.render("teacher/addChallenge", { course });
+      res.redirect(`/teacher/editCourse/${course._id}`);
     })
     .catch(next);
 });

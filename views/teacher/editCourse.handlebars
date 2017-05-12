@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="jumbotron">
+      <h1>{{course.name}}</h1>
+      <h4>Interest : {{course.interest}}  | Category : {{course.category}}</h4>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <a class="btn btn-success" href="/teacher/addChallenge/{{course._id}}">Add A Challenge</a>
+  <a class="btn btn-warning" href="#">Publish Course</a>
+</div>
+<div class="row">
+  <table class="table">
+    <h4>Challenges</h4>
+    <thead>
+      <th>Title</th>
+      <th>Stars</th>
+    </thead>
+    <tbody>
+      {{#each course.challenges as |challenge|}}
+      <tr>
+        <td>{{challenge.name}}</td>
+        <td>{{challenge.stars}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

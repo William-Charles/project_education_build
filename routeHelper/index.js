@@ -43,6 +43,7 @@ function createChallenge(formInfo) {
   challenge.notes = formInfo.notes;
   challenge.video = formInfo.video;
   challenge.mock = formInfo.mock;
+  challenge.stars = formInfo.stars;
 
   for (let i = 0; i < 5; i++) {
     let question = {};
@@ -53,7 +54,7 @@ function createChallenge(formInfo) {
     question.incorrect4 = formInfo[`false4-${i}`];
     quiz.push(question);
   }
-
+  challenge.quiz = quiz;
   return challenge;
 }
 
