@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-xs-2">
+    <div class="row well">
+      <form>
+        <fieldset>
+          <legend>Choose your interests</legend>
+          <div>
+            <input type="checkbox" id="coding" name="interest" value="coding">
+            <label for="coding">Coding</label>
+          </div>
+          <div>
+            <input type="checkbox" id="music" name="interest" value="music">
+            <label for="music">Music</label>
+          </div>
+        </fieldset>
+        <div>
+          <button type="submit">Subscribe</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="row well">
+      <form>
+        <fieldset>
+          <legend>Choose your interests</legend>
+          <div>
+            <input type="checkbox" id="coding" name="interest" value="coding">
+            <label for="coding">Coding</label>
+          </div>
+          <div>
+            <input type="checkbox" id="music" name="interest" value="music">
+            <label for="music">Music</label>
+          </div>
+        </fieldset>
+        <div>
+          <button type="submit">Subscribe</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="col-xs-10">
+    <header class="page-header">
+      <div class="form-group row">
+      <form action="/products" method="get">
+
+          <label for="search"></label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" name="search" id="search" placeholder="Name of product">
+          </div>
+
+
+          <label for="sort"></label>
+          <div class="col-sm-3">
+            <select class="form-control" name="category" id="sort">
+              <option value="All">Categories</option>
+              {{#each categories as |category|}}
+              <option value="{{category.id}}">{{category.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+
+          <label for="sortSelect" ></label>
+          <div class="col-sm-2">
+            <select class="form-control" name="sort" id="sortSelect">
+              <option value="">Order By</option>
+              <option value="price">Least Expensive</option>
+              <option value="priceDesc">Most Expensive</option>
+              <option value="name">Alphabetical</option>
+              <option value="nameDesc">Reverse Alphabetical</option>
+              <option value="created">Newest</option>
+              <option value="createdDesc">Oldest</option>
+            </select>
+
+
+        </div>
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-primary ">Find</button>
+
+        </div>
+
+
+       </form>
+       </div>
+    </header>
+
+    <div class="row">
+        {{#each courses as |course|}}
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img src="course.image" alt="{{course.desc}}">
+            <div class="caption">
+              <h3>{{course.name}}</h3>
+              <p>{{course.desc}}</p>
+              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+    </div>
+  </div>
+</div>

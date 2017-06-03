@@ -19,6 +19,14 @@ router.get("/home", loggedInOnly, function(req, res, next) {
     .catch(next);
 });
 
+router.get("/showcase", function(req, res, next) {
+  Course.find({})
+    .then(courses => {
+      res.render("showcase", { courses });
+    })
+    .catch(next);
+});
+
 router.get("/dashboard", loggedInOnly, function(req, res, next) {
   User.findById(req.user.id)
     .then(user => {
